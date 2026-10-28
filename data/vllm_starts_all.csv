@@ -1,0 +1,70 @@
+session,gpu,log_file,quantization,speculative_decoding,model_loading_gib,load_seconds,gpu_memory_utilization,max_model_len,available_kv_gib,kv_cache_tokens,max_concurrency_x,concurrency_ref_tokens,oom_reported,engine_failed_to_start
+20261026T193237,A100,vllm_awq27.log,compressed,False,17.8,7.269234,0.92,8192,16.28,163840.0,20.0,8192.0,False,False
+20261026T193237,A100,vllm_fp8_27.log,fp8,False,28.06,13.535867,,8192,,,,,False,True
+20261026T193237,A100,vllm_q9bf16.log,None,False,17.66,5.088463,0.92,8192,14.26,329541.0,40.23,8192.0,False,False
+20261027T095940,GB10,vllm_9b.log,None,False,17.66,44.602737,0.4,32000,19.51,577910.0,18.06,32000.0,False,False
+20261027T095940,GB10,vllm_9b_2.log,None,False,17.66,46.199334,0.4,32000,25.94,768477.0,24.01,32000.0,False,False
+20261027T095940,GB10,vllm_awq27.log,compressed,False,17.8,114.688502,0.92,8192,90.08,906902.0,110.71,8192.0,False,False
+20261027T095940,GB10,vllm_bf16_dflash.log,None,True,54.87,373.3707,0.9,32768,46.42,370063.0,11.29,32768.0,False,False
+20261027T095940,GB10,vllm_fp8_dflash.log,fp8,True,31.83,348.716922,0.85,32768,64.82,516696.0,15.77,32768.0,False,False
+20261027T095940,GB10,vllm_fp8_plain.log,fp8,False,28.06,335.890091,0.85,32768,69.98,998058.0,30.46,32768.0,False,False
+20261027T095940,GB10,vllm_nvfp4_dflash.log,modelopt_fp4,True,31.46,177.299205,0.85,32768,63.36,505057.0,15.41,32768.0,False,False
+20261026T122552,H100 NVL,vllm_bf16_dflash.log,None,True,54.87,8.617981,0.9,32768,22.79,171733.0,5.24,32768.0,False,False
+20261026T122552,H100 NVL,vllm_fp8_dflash.log,fp8,True,31.83,10.793953,0.9,32768,46.53,350641.0,10.7,32768.0,False,False
+20261026T110222,L40S,vllm_fp8_dflash.log,fp8,True,31.83,11.000201,0.88,32768,3.05,,,,False,True
+20261026T110222,L40S,vllm_fp8_plain.log,fp8,False,28.06,10.138116,0.88,32768,8.43,120149.0,3.67,32768.0,False,False
+20261026T193212,L40S,vllm_awq27.log,compressed,False,17.8,5.54048,0.92,8192,20.79,209136.0,25.53,8192.0,False,False
+20261026T193212,L40S,vllm_fp8_27.log,fp8,False,28.06,13.645913,0.92,8192,10.27,103122.0,12.59,8192.0,False,False
+20261026T193212,L40S,vllm_q9bf16.log,None,False,17.66,4.613128,0.92,8192,21.02,485562.0,59.27,8192.0,False,False
+20261027T071330,L40S,vllm_bf16_dflash.log,None,True,,,,32768,,,,,True,True
+20261027T071330,L40S,vllm_fp8_dflash.log,fp8,True,31.83,10.621211,0.9,32768,6.62,52757.0,1.61,32768.0,False,False
+20261027T071330,L40S,vllm_nvfp4_dflash.log,modelopt_fp4,True,31.47,6.690813,0.9,32768,7.09,56426.0,1.72,32768.0,False,False
+20261027T071330,L40S,vllm_q9_bf16.log,None,False,17.66,5.959352,0.92,8192,23.76,548864.0,67.0,8192.0,False,False
+20261026T153346,RTX 3090,vllm_mtp3.log,compressed,True,,,,12288,,,,,True,True
+20261026T153346,RTX 3090,vllm_plain.log,compressed,False,17.8,10.800421,0.94,12288,2.13,24576.0,2.0,12288.0,False,False
+20261026T164456,RTX 3090,vllm_awq.log,compressed,False,17.8,8.869049,0.92,8192,1.66,16384.0,2.0,8192.0,False,False
+20261026T164456,RTX 3090,vllm_q9abl.log,None,False,17.66,7.527782,0.92,8192,1.88,43194.0,5.27,8192.0,False,False
+20261026T164456,RTX 3090,vllm_q9base.log,None,False,17.66,10.766628,0.92,8192,1.88,43194.0,5.27,8192.0,False,False
+20261026T174223,RTX 3090,vllm_q9abl.log,None,False,17.66,6.329606,0.9,8192,1.45,33512.0,4.09,8192.0,False,False
+20261026T174223,RTX 3090,vllm_q9base.log,None,False,17.66,9.652302,0.9,8192,1.45,33512.0,4.09,8192.0,False,False
+20261027T022124,RTX 3090,vllm_awq27.log,compressed,False,17.8,14.31891,0.92,8192,1.66,16384.0,2.0,8192.0,False,False
+20261027T022124,RTX 3090,vllm_bf16_dflash.log,None,True,,,,8192,,,,,True,True
+20261027T022124,RTX 3090,vllm_fp8_dflash.log,fp8,True,,,,8192,,,,,True,True
+20261027T022124,RTX 3090,vllm_fp8_plain.log,fp8,False,,,,8192,,,,,True,True
+20261027T035103,RTX 3090,vllm_awq27.log,compressed,False,17.8,12.650975,0.92,8192,1.7,16865.0,2.06,8192.0,False,False
+20261027T035103,RTX 3090,vllm_bf16_dflash.log,None,True,,,,8192,,,,,True,True
+20261027T035103,RTX 3090,vllm_fp8_dflash.log,fp8,True,,,,8192,,,,,True,True
+20261027T035103,RTX 3090,vllm_fp8_plain.log,fp8,False,,,,8192,,,,,True,True
+20261027T035103,RTX 3090,vllm_nvfp4_dflash.log,modelopt_fp4,True,,,,8192,,,,,True,True
+20261027T035103,RTX 3090,vllm_q9_bf16.log,None,False,17.66,10.870754,0.92,8192,1.92,44311.0,5.41,8192.0,False,False
+20261027T045517,RTX 4090,vllm_awq27.log,compressed,False,17.8,9.565939,0.92,8192,1.62,15902.0,1.94,8192.0,False,False
+20261027T045517,RTX 4090,vllm_bf16_dflash.log,None,True,,,,8192,,,,,True,True
+20261027T045517,RTX 4090,vllm_fp8_dflash.log,fp8,True,,,,8192,,,,,True,True
+20261027T045517,RTX 4090,vllm_fp8_plain.log,fp8,False,,,,8192,,,,,True,True
+20261027T045517,RTX 4090,vllm_nvfp4_dflash.log,modelopt_fp4,True,,,,8192,,,,,True,True
+20261026T110241,RTX 5090,vllm_nvfp4_dflash.log,modelopt_fp4,True,,,,32768,,,,,True,True
+20261026T110241,RTX 5090,vllm_nvfp4_plain.log,modelopt_fp4,False,27.69,12.653666,0.88,32768,-2.62,,,,True,True
+20261026T120920,RTX 5090,vllm_nvfp4_dflash.log,modelopt_fp4,True,,,,8192,,,,,True,True
+20261026T120920,RTX 5090,vllm_nvfp4_plain.log,modelopt_fp4,False,27.69,8.219987,0.94,8192,-0.68,,,,True,True
+20261026T152139,RTX 5090,vllm_bf16.log,None,False,17.66,13.499974,0.92,8192,8.85,204427.0,24.95,8192.0,False,False
+20261027T061218,RTX 5090,vllm_awq27.log,compressed,False,17.8,10.488519,,8192,,,,,False,False
+20261027T062444,RTX 5090,vllm_awq27.log,compressed,False,17.8,16.557231,0.92,8192,8.7,87220.0,10.65,8192.0,False,False
+20261027T062444,RTX 5090,vllm_bf16_dflash.log,None,True,,,,8192,,,,,True,True
+20261027T062444,RTX 5090,vllm_fp8_dflash.log,fp8,True,,,,8192,,,,,True,True
+20261027T062444,RTX 5090,vllm_fp8_plain.log,fp8,False,28.06,20.220625,0.9,8192,-2.31,,,,True,True
+20261027T182603,RTX 5090,vllm_49152.log,compressed,False,,,,49152,,,,,False,True
+20261027T182603,RTX 5090,vllm_98304.log,compressed,False,,,,98304,,,,,False,True
+20261027T205547,RTX 5090,vllm_98304.log,compressed,False,17.8,11.891527,0.92,98304,8.66,134795.0,1.37,98304.0,False,False
+20261027T230247,RTX 5090,vllm_q9.log,None,False,17.66,38.591938,0.85,8192,6.7,154530.0,18.86,8192.0,False,False
+20261026T111833,RTX PRO 6000,vllm_bf16_dflash.log,None,True,54.87,19.839834,0.88,32768,23.87,179745.0,5.49,32768.0,False,False
+20261026T111833,RTX PRO 6000,vllm_fp8_dflash.log,fp8,True,31.83,18.017142,0.88,32768,47.17,355425.0,10.85,32768.0,False,False
+20261026T111833,RTX PRO 6000,vllm_nvfp4_dflash.log,modelopt_fp4,True,31.46,10.507349,0.88,32768,47.13,355066.0,10.84,32768.0,False,False
+20261026T122605,RTX PRO 6000,vllm_nvfp4_dflash.log,modelopt_fp4,True,31.46,4.985457,0.92,32768,50.51,380658.0,11.62,32768.0,False,False
+20261027T075632,RTX PRO 6000,vllm_awq27.log,compressed,False,17.8,7.450024,0.92,8192,66.92,673671.0,82.24,8192.0,False,False
+20261027T075632,RTX PRO 6000,vllm_fp8_plain.log,fp8,False,28.06,14.655506,0.9,32768,54.95,783701.0,23.92,32768.0,False,False
+20261027T075632,RTX PRO 6000,vllm_q9_bf16.log,None,False,17.66,5.558404,0.92,8192,67.25,1553873.0,189.68,8192.0,False,False
+20261027T201206,RTX PRO 6000,vllm_awq_awq.log,compressed,False,17.8,5.05215,0.9,8192,64.99,654396.0,79.88,8192.0,False,False
+20261027T201206,RTX PRO 6000,vllm_bf16_bf16.log,None,False,51.1,5.366005,0.9,8192,31.63,318042.0,38.82,8192.0,False,False
+20261027T201206,RTX PRO 6000,vllm_bf16_fp8.log,fp8,False,28.06,6.398741,0.9,8192,54.97,553200.0,67.53,8192.0,False,False
+20261027T201206,RTX PRO 6000,vllm_q9.log,None,False,17.66,3.072783,0.85,8192,60.57,1399342.0,170.82,8192.0,False,False
+20261027T201206,RTX PRO 6000,vllm_target_nvfp4.log,modelopt_fp4,False,27.69,3.870207,0.9,8192,55.14,555128.0,67.76,8192.0,False,False

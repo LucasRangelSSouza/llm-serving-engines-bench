@@ -1,0 +1,46 @@
+# vLLM server start, key lines only (full logs are large). GPU: A100. Session: 20261026T193237. Outcome: failed-start.
+INFO 10-26 20:18:13 [api_utils.py:286] non-default args: {'model_tag': '/workspace/models/fp8_27', 'host': '127.0.0.1', 'port': 18000, 'model': '/workspace/models/fp8_27', 'max_model_len': 8192, 'quantization': 'fp8', 'served_model_name': ['m'], 'reasoning_parser': 'qwen3', 'max_num_seqs': 16}
+INFO 10-26 20:18:13 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 10-26 20:18:38 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/workspace/models/fp8_27', speculative_config=None, tokenizer='/workspace/models/fp8_27', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtyp
+INFO 10-26 20:18:40 [cuda.py:597] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+INFO 10-26 20:18:40 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+INFO 10-26 20:18:40 [qwen_gdn_linear_attn.py:176] Using Triton/FLA GDN prefill kernel (requested=auto, head_k_dim=128).
+INFO 10-26 20:18:41 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+INFO 10-26 20:18:53 [model_runner.py:428] Model loading took 28.06 GiB memory and 13.535867 seconds
+ERROR 10-26 20:19:03 [core.py:1366] EngineCore failed to start.
+ERROR 10-26 20:19:03 [core.py:1366] Traceback (most recent call last):
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1328, in run_engine_core
+ERROR 10-26 20:19:03 [core.py:1366]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+ERROR 10-26 20:19:03 [core.py:1366]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-26 20:19:03 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-26 20:19:03 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1085, in __init__
+ERROR 10-26 20:19:03 [core.py:1366]     super().__init__(
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 145, in __init__
+ERROR 10-26 20:19:03 [core.py:1366]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+ERROR 10-26 20:19:03 [core.py:1366]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-26 20:19:03 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-26 20:19:03 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 308, in _initialize_kv_caches
+ERROR 10-26 20:19:03 [core.py:1366]     available_gpu_memory = self.model_executor.determine_available_memory()
+ERROR 10-26 20:19:03 [core.py:1366]                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 149, in determine_available_memory
+ERROR 10-26 20:19:03 [core.py:1366]     return self.collective_rpc("determine_available_memory")
+ERROR 10-26 20:19:03 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 103, in collective_rpc
+ERROR 10-26 20:19:03 [core.py:1366]     result = run_method(self.driver_worker, method, args, kwargs)
+ERROR 10-26 20:19:03 [core.py:1366]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+ERROR 10-26 20:19:03 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-26 20:19:03 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+ERROR 10-26 20:19:03 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-26 20:19:03 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 572, in determine_available_memory
+ERROR 10-26 20:19:03 [core.py:1366]     self.model_runner.profile_run()
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+ERROR 10-26 20:19:03 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-26 20:19:03 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:19:03 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 951, in profile_run

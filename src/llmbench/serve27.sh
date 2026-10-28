@@ -1,4 +1,6 @@
 #!/bin/bash
+# Starts the 27B server with explicit batch, context and memory limits.
+# Original harness script, copied unmodified apart from this header. Comments inside may be in Portuguese.
 # uso: serve27.sh <variante> [max_seqs] [gpu_util] [max_len]   variantes: fp8_dflash | fp8_plain | nvfp4_dflash | nvfp4_plain | bf16_plain
 # Sobe o 27B abliterado (nosso modelo) em :18000 sem api-key (so loopback), espera ficar saudavel e imprime o tempo de carga.
 V=${1:-fp8_dflash}; SEQS=${2:-32}; UTIL=${3:-0.85}; LEN=${4:-32768}

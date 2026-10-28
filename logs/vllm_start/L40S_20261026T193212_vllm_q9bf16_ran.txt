@@ -1,0 +1,11 @@
+# vLLM server start, key lines only (full logs are large). GPU: L40S. Session: 20261026T193212. Outcome: ran.
+INFO 10-26 20:10:01 [api_utils.py:286] non-default args: {'model_tag': '/workspace/models/q9bf16', 'host': '127.0.0.1', 'port': 18000, 'model': '/workspace/models/q9bf16', 'max_model_len': 8192, 'served_model_name': ['m'], 'reasoning_parser': 'qwen3', 'max_num_seqs': 16}
+INFO 10-26 20:10:13 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 10-26 20:10:30 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/workspace/models/q9bf16', speculative_config=None, tokenizer='/workspace/models/q9bf16', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtyp
+INFO 10-26 20:10:33 [cuda.py:597] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+INFO 10-26 20:10:33 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+INFO 10-26 20:10:33 [qwen_gdn_linear_attn.py:176] Using Triton/FLA GDN prefill kernel (requested=auto, head_k_dim=128).
+INFO 10-26 20:10:33 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+INFO 10-26 20:10:37 [model_runner.py:428] Model loading took 17.66 GiB memory and 4.613128 seconds
+INFO 10-26 20:12:00 [gpu_worker.py:640] Available KV cache memory: 21.02 GiB
+INFO 10-26 20:12:00 [kv_cache_utils.py:2395] GPU KV cache size: 485,562 tokens, Maximum concurrency for 8,192 tokens per request: 59.27x

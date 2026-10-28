@@ -1,3 +1,5 @@
+# Long-context study: cold prefill, prefix-cache hits and multi-turn agent sessions.
+# Original harness script, copied unmodified apart from this header. Comments inside may be in Portuguese.
 """Carga de AGENTE com contexto longo (OpenAI-compativel, streaming). Mede o que a bateria curta nao mede: prefill, cache de prefixo e turnos de agente.
 uso: python longctx.py --base http://127.0.0.1:18000/v1 --model qwen-abliterated --out DIR --max_ctx 100000 --sessions 1,4,8 --turns 10
 Fases (1 linha por requisicao em DIR/longctx.jsonl, campo 'phase'):

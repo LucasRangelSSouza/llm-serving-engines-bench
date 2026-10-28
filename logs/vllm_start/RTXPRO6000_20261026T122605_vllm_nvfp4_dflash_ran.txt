@@ -1,0 +1,16 @@
+# vLLM server start, key lines only (full logs are large). GPU: RTX PRO 6000. Session: 20261026T122605. Outcome: ran.
+INFO 10-26 12:43:18 [api_utils.py:286] non-default args: {'model_tag': '/workspace/models/target', 'enable_auto_tool_choice': True, 'tool_call_parser': 'qwen3_xml', 'host': '127.0.0.1', 'port': 18000, 'model': '/workspace/models/target', 'trust_remote_code': True, 'max_model_len': 32768, 'served_mod
+INFO 10-26 12:43:25 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 10-26 12:43:33 [model.py:692] Resolved architecture: DFlash2DraftModel
+INFO 10-26 12:43:33 [speculative.py:1651] Overriding draft model max model len from 262144 to 32768
+INFO 10-26 12:43:43 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/workspace/models/target', speculative_config=SpeculativeConfig(method='dflash', model='/workspace/models/drafter', num_spec_tokens=7), tokenizer='/workspace/models/target', skip_tokenizer_init=False, tokeni
+INFO 10-26 12:43:45 [cuda.py:597] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+INFO 10-26 12:43:45 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+INFO 10-26 12:43:45 [qwen_gdn_linear_attn.py:176] Using FlashInfer GDN prefill kernel (requested=auto, head_k_dim=128).
+INFO 10-26 12:43:45 [__init__.py:1180] Using FlashInferCutlassNvFp4LinearKernel for NVFP4 GEMM
+INFO 10-26 12:43:45 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+INFO 10-26 12:43:49 [model_runner.py:428] Model loading took 31.46 GiB memory and 4.985457 seconds
+WARNING 10-26 12:44:42 [kv_cache_utils.py:2206] Speculative decoding (method=dflash) is enabled but no KV cache group could be identified as the draft model's.
+INFO 10-26 12:46:15 [gpu_worker.py:640] Available KV cache memory: 50.51 GiB
+WARNING 10-26 12:46:15 [kv_cache_utils.py:2206] Speculative decoding (method=dflash) is enabled but no KV cache group could be identified as the draft model's.
+INFO 10-26 12:46:15 [kv_cache_utils.py:2395] GPU KV cache size: 380,658 tokens, Maximum concurrency for 32,768 tokens per request: 11.62x

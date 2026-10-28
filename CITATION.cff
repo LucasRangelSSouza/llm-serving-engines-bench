@@ -5,3 +5,4 @@ authors:
     given-names: Lucas
 type: software
 date-released: 2026-10-28
+repository-code: "https://github.com/LucasRangelSSouza/llm-serving-engines-bench"

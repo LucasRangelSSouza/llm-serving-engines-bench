@@ -1,3 +1,5 @@
+# Closed-loop streaming load generator for an OpenAI-compatible server; one JSON line per request.
+# Original harness script, copied unmodified apart from this header. Comments inside may be in Portuguese.
 """Bench do LLM (OpenAI-compativel, streaming). Roda NA VM da GPU. Grava 1 linha por requisicao + tempos de cada chunk.
 uso: python llm_bench.py --base http://127.0.0.1:18000/v1 --model qwen-abliterated --key KEY --out DIR --levels 1,2,4,8,16 --dur 60"""
 import argparse, asyncio, json, os, random, time, uuid

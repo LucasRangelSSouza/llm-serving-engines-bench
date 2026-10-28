@@ -1,0 +1,20 @@
+# vLLM server start, key lines only (full logs are large). GPU: L40S. Session: 20261026T193212. Outcome: ran.
+INFO 10-26 20:17:48 [api_utils.py:286] non-default args: {'model_tag': '/workspace/models/awq27', 'host': '127.0.0.1', 'port': 18000, 'model': '/workspace/models/awq27', 'max_model_len': 8192, 'served_model_name': ['m'], 'reasoning_parser': 'qwen3', 'max_num_seqs': 16}
+INFO 10-26 20:17:48 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 10-26 20:18:13 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/workspace/models/awq27', speculative_config=None, tokenizer='/workspace/models/awq27', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=
+INFO 10-26 20:18:15 [cuda.py:597] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+INFO 10-26 20:18:15 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+INFO 10-26 20:18:15 [compressed_tensors_wNa16.py:132] Using MarlinLinearKernel for CompressedTensorsWNA16
+INFO 10-26 20:18:15 [qwen_gdn_linear_attn.py:176] Using Triton/FLA GDN prefill kernel (requested=auto, head_k_dim=128).
+INFO 10-26 20:18:16 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+INFO 10-26 20:18:20 [model_runner.py:428] Model loading took 17.8 GiB memory and 5.540480 seconds
+INFO 10-26 20:20:18 [gpu_worker.py:640] Available KV cache memory: 20.79 GiB
+INFO 10-26 20:20:18 [kv_cache_utils.py:2395] GPU KV cache size: 209,136 tokens, Maximum concurrency for 8,192 tokens per request: 25.53x
+ERROR 10-26 20:21:59 [async_llm.py:843] AsyncLLM output_handler failed.
+ERROR 10-26 20:21:59 [async_llm.py:843] Traceback (most recent call last):
+ERROR 10-26 20:21:59 [async_llm.py:843]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 789, in output_handler
+ERROR 10-26 20:21:59 [async_llm.py:843]     outputs = await engine_core.get_output_async()
+ERROR 10-26 20:21:59 [async_llm.py:843]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 20:21:59 [async_llm.py:843]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1175, in get_output_async
+ERROR 10-26 20:21:59 [async_llm.py:843]     raise self._format_exception(outputs) from None
+ERROR 10-26 20:21:59 [async_llm.py:843] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.

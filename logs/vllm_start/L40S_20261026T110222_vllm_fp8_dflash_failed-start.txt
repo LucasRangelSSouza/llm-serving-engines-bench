@@ -1,0 +1,44 @@
+# vLLM server start, key lines only (full logs are large). GPU: L40S. Session: 20261026T110222. Outcome: failed-start.
+INFO 10-26 11:27:45 [api_utils.py:286] non-default args: {'model_tag': '/workspace/models/bf16', 'enable_auto_tool_choice': True, 'tool_call_parser': 'qwen3_xml', 'host': '127.0.0.1', 'port': 18000, 'model': '/workspace/models/bf16', 'trust_remote_code': True, 'max_model_len': 32768, 'quantization':
+INFO 10-26 11:27:56 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 10-26 11:28:07 [model.py:692] Resolved architecture: DFlash2DraftModel
+INFO 10-26 11:28:07 [speculative.py:1651] Overriding draft model max model len from 262144 to 32768
+WARNING 10-26 11:28:07 [vllm.py:2135] max_num_scheduled_tokens is set to 2048 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens.
+INFO 10-26 11:28:23 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/workspace/models/bf16', speculative_config=SpeculativeConfig(method='dflash', model='/workspace/models/drafter', num_spec_tokens=7), tokenizer='/workspace/models/bf16', skip_tokenizer_init=False, tokenizer_
+INFO 10-26 11:28:25 [cuda.py:597] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+INFO 10-26 11:28:25 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+INFO 10-26 11:28:26 [qwen_gdn_linear_attn.py:176] Using Triton/FLA GDN prefill kernel (requested=auto, head_k_dim=128).
+INFO 10-26 11:28:26 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+WARNING 10-26 11:28:35 [vllm.py:2135] max_num_scheduled_tokens is set to 2048 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens.
+INFO 10-26 11:28:36 [model_runner.py:428] Model loading took 31.83 GiB memory and 11.000201 seconds
+WARNING 10-26 11:30:56 [kv_cache_utils.py:2206] Speculative decoding (method=dflash) is enabled but no KV cache group could be identified as the draft model's.
+INFO 10-26 11:31:20 [gpu_worker.py:640] Available KV cache memory: 3.05 GiB
+WARNING 10-26 11:31:20 [kv_cache_utils.py:2206] Speculative decoding (method=dflash) is enabled but no KV cache group could be identified as the draft model's.
+ERROR 10-26 11:31:20 [core.py:1366] EngineCore failed to start.
+ERROR 10-26 11:31:20 [core.py:1366] Traceback (most recent call last):
+ERROR 10-26 11:31:20 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1328, in run_engine_core
+ERROR 10-26 11:31:20 [core.py:1366]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+ERROR 10-26 11:31:20 [core.py:1366]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:31:20 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-26 11:31:20 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-26 11:31:20 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:31:20 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1085, in __init__
+ERROR 10-26 11:31:20 [core.py:1366]     super().__init__(
+ERROR 10-26 11:31:20 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 145, in __init__
+ERROR 10-26 11:31:20 [core.py:1366]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+ERROR 10-26 11:31:20 [core.py:1366]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:31:20 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-26 11:31:20 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-26 11:31:20 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:31:20 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 319, in _initialize_kv_caches
+ERROR 10-26 11:31:20 [core.py:1366]     kv_cache_configs = get_kv_cache_configs(
+ERROR 10-26 11:31:20 [core.py:1366]                        ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:31:20 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 2737, in get_kv_cache_configs
+ERROR 10-26 11:31:20 [core.py:1366]     _check_enough_kv_cache_memory(
+ERROR 10-26 11:31:20 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 899, in _check_enough_kv_cache_memory
+ERROR 10-26 11:31:20 [core.py:1366]     raise ValueError(
+ERROR 10-26 11:31:20 [core.py:1366] ValueError: To serve at least one request with the model's max seq len (32768), (4.11 GiB KV cache is needed, which is larger than the available KV cache memory (3.03 GiB). Based on the available memory, the estimated maximum model length is 19136. Try increasing 
+    raise ValueError(
+ValueError: To serve at least one request with the model's max seq len (32768), (4.11 GiB KV cache is needed, which is larger than the available KV cache memory (3.03 GiB). Based on the available memory, the estimated maximum model length is 19136. Try increasing `gpu_memory_utilization` (which also
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

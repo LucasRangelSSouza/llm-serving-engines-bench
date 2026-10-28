@@ -1,0 +1,46 @@
+# vLLM server start, key lines only (full logs are large). GPU: RTX 5090. Session: 20261027T182603. Outcome: failed-start.
+INFO 10-27 18:55:23 [api_utils.py:286] non-default args: {'model_tag': '/workspace/models/awq', 'host': '127.0.0.1', 'port': 18000, 'model': '/workspace/models/awq', 'trust_remote_code': True, 'max_model_len': 98304, 'served_model_name': ['qwen-abliterated'], 'reasoning_parser': 'qwen3', 'max_num_se
+INFO 10-27 18:55:33 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 10-27 18:55:51 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/workspace/models/awq', speculative_config=None, tokenizer='/workspace/models/awq', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch
+INFO 10-27 18:55:53 [cuda.py:597] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+INFO 10-27 18:55:53 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+INFO 10-27 18:55:53 [compressed_tensors_wNa16.py:132] Using MarlinLinearKernel for CompressedTensorsWNA16
+INFO 10-27 18:55:53 [qwen_gdn_linear_attn.py:176] Using FlashInfer GDN prefill kernel (requested=auto, head_k_dim=128).
+INFO 10-27 18:55:55 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+ERROR 10-27 18:55:57 [core.py:1366] EngineCore failed to start.
+ERROR 10-27 18:55:57 [core.py:1366] Traceback (most recent call last):
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1328, in run_engine_core
+ERROR 10-27 18:55:57 [core.py:1366]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+ERROR 10-27 18:55:57 [core.py:1366]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-27 18:55:57 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-27 18:55:57 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1085, in __init__
+ERROR 10-27 18:55:57 [core.py:1366]     super().__init__(
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 134, in __init__
+ERROR 10-27 18:55:57 [core.py:1366]     self.model_executor = executor_class(vllm_config)
+ERROR 10-27 18:55:57 [core.py:1366]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-27 18:55:57 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-27 18:55:57 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 110, in __init__
+ERROR 10-27 18:55:57 [core.py:1366]     self._init_executor()
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 74, in _init_executor
+ERROR 10-27 18:55:57 [core.py:1366]     self.driver_worker.load_model()
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 507, in load_model
+ERROR 10-27 18:55:57 [core.py:1366]     self.model_runner.load_model(load_dummy_weights=load_dummy_weights)
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 400, in load_model
+ERROR 10-27 18:55:57 [core.py:1366]     self.model = model_loader.load_model(
+ERROR 10-27 18:55:57 [core.py:1366]                  ^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-27 18:55:57 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-27 18:55:57 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/model_executor/model_loader/base_loader.py", line 75, in load_model
+ERROR 10-27 18:55:57 [core.py:1366]     self.load_weights(model, model_config)
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-27 18:55:57 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-27 18:55:57 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/model_executor/model_loader/default_loader.py", line 427, in load_weights
+ERROR 10-27 18:55:57 [core.py:1366]     loaded_weights = model.load_weights(self.get_all_weights(model_config, model))
+ERROR 10-27 18:55:57 [core.py:1366]                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-27 18:55:57 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/model_executor/models/qwen3_5.py", line 605, in load_weights

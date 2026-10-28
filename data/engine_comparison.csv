@@ -1,0 +1,15 @@
+setup,users,requests,ok,rejected_400,connection_errors,wall_s,agg_out_tps,ttft_p50_s,ttft_p95_s,decode_tps_per_user_p50
+RTX 5090 | 9B BF16 | vLLM (CUDA graphs on),1,10,9,1,0,29.5,93.6,0.051,0.053,95.4
+RTX 5090 | 9B BF16 | vLLM (CUDA graphs on),8,82,69,13,0,30.5,564.3,0.063,0.116,81.6
+RTX 5090 | 9B BF16 | vLLM (CUDA graphs on),16,140,122,18,0,30.8,1061.5,0.071,0.161,75.3
+RTX 5090 | 9B BF16 | vLLM (CUDA graphs on),32,252,211,41,0,31.3,1899.7,0.075,0.198,69.3
+RTX 5090 | 9B BF16 | SGLang (CUDA graphs on),1,10,9,1,0,29.4,96.4,0.025,0.027,97.6
+RTX 5090 | 9B BF16 | SGLang (CUDA graphs on),8,82,69,13,0,30.0,585.9,0.037,0.38,84.8
+RTX 5090 | 9B BF16 | SGLang (CUDA graphs on),16,144,125,19,0,30.0,1115.4,0.037,0.229,78.0
+RTX 5090 | 9B BF16 | SGLang (CUDA graphs on),32,162,134,28,0,33.9,1120.7,3.472,4.897,78.6
+RTX 4090 | 9B BF16 | vLLM,1,7,6,1,0,27.9,56.2,0.044,0.049,56.9
+RTX 4090 | 9B BF16 | vLLM,8,58,48,10,0,31.9,350.1,0.068,0.084,51.2
+RTX 4090 | 9B BF16 | vLLM,16,100,88,12,0,34.6,656.7,0.067,0.128,48.2
+RTX 4090 | 9B BF16 | SGLang (first attempt),1,7,6,1,0,29.4,57.1,0.029,0.032,57.5
+RTX 4090 | 9B BF16 | SGLang (first attempt),8,29,23,6,0,41.1,139.0,7.707,9.428,52.9
+RTX 4090 | 9B BF16 | SGLang (first attempt),16,35,30,5,0,46.8,147.2,16.487,21.992,52.8

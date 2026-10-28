@@ -1,0 +1,17 @@
+# vLLM server start, key lines only (full logs are large). GPU: GB10. Session: 20261027T095940. Outcome: ran.
+INFO 10-26 12:03:30 [api_utils.py:286] non-default args: {'model_tag': '/workspace/models/bf16', 'enable_auto_tool_choice': True, 'tool_call_parser': 'qwen3_xml', 'host': '127.0.0.1', 'port': 18000, 'model': '/workspace/models/bf16', 'trust_remote_code': True, 'max_model_len': 32768, 'quantization':
+INFO 10-26 12:03:30 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 10-26 12:03:32 [model.py:692] Resolved architecture: DFlash2DraftModel
+INFO 10-26 12:03:32 [speculative.py:1651] Overriding draft model max model len from 262144 to 32768
+WARNING 10-26 12:03:32 [vllm.py:2135] max_num_scheduled_tokens is set to 2048 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens.
+INFO 10-26 12:03:42 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/workspace/models/bf16', speculative_config=SpeculativeConfig(method='dflash', model='/workspace/models/drafter', num_spec_tokens=7), tokenizer='/workspace/models/bf16', skip_tokenizer_init=False, tokenizer_
+INFO 10-26 12:03:44 [cuda.py:597] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+INFO 10-26 12:03:44 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+INFO 10-26 12:03:44 [qwen_gdn_linear_attn.py:176] Using FlashInfer GDN prefill kernel (requested=auto, head_k_dim=128).
+INFO 10-26 12:03:45 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+WARNING 10-26 12:09:08 [vllm.py:2135] max_num_scheduled_tokens is set to 2048 based on the speculative decoding settings. This may lead to suboptimal performance. Consider increasing max_num_batched_tokens to accommodate the additional draft token slots, or decrease num_speculative_tokens.
+INFO 10-26 12:09:32 [model_runner.py:428] Model loading took 31.83 GiB memory and 348.716922 seconds
+WARNING 10-26 12:09:53 [kv_cache_utils.py:2206] Speculative decoding (method=dflash) is enabled but no KV cache group could be identified as the draft model's.
+INFO 10-26 12:10:38 [gpu_worker.py:640] Available KV cache memory: 64.82 GiB
+WARNING 10-26 12:10:38 [kv_cache_utils.py:2206] Speculative decoding (method=dflash) is enabled but no KV cache group could be identified as the draft model's.
+INFO 10-26 12:10:38 [kv_cache_utils.py:2395] GPU KV cache size: 516,696 tokens, Maximum concurrency for 32,768 tokens per request: 15.77x

@@ -1,0 +1,40 @@
+# vLLM server start, key lines only (full logs are large). GPU: RTX 5090. Session: 20261026T110241. Outcome: failed-start.
+INFO 10-26 11:44:08 [api_utils.py:286] non-default args: {'model_tag': '/workspace/models/target', 'enable_auto_tool_choice': True, 'tool_call_parser': 'qwen3_xml', 'host': '127.0.0.1', 'port': 18000, 'model': '/workspace/models/target', 'trust_remote_code': True, 'max_model_len': 32768, 'served_mod
+INFO 10-26 11:44:08 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+INFO 10-26 11:44:34 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='/workspace/models/target', speculative_config=None, tokenizer='/workspace/models/target', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype
+INFO 10-26 11:44:37 [cuda.py:597] Using backend AttentionBackendEnum.FLASH_ATTN for vit attention
+INFO 10-26 11:44:37 [mm_encoder_attention.py:372] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+INFO 10-26 11:44:37 [qwen_gdn_linear_attn.py:176] Using FlashInfer GDN prefill kernel (requested=auto, head_k_dim=128).
+INFO 10-26 11:44:37 [__init__.py:1180] Using FlashInferCutlassNvFp4LinearKernel for NVFP4 GEMM
+INFO 10-26 11:44:38 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+INFO 10-26 11:44:49 [model_runner.py:428] Model loading took 27.69 GiB memory and 12.653666 seconds
+[rank0]:[W1026 11:45:11.209810810 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 564133888 bytes (free: 410779648, total: 33668726784).
+INFO 10-26 11:48:36 [gpu_worker.py:640] Available KV cache memory: -2.62 GiB
+ERROR 10-26 11:48:36 [core.py:1366] EngineCore failed to start.
+ERROR 10-26 11:48:36 [core.py:1366] Traceback (most recent call last):
+ERROR 10-26 11:48:36 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1328, in run_engine_core
+ERROR 10-26 11:48:36 [core.py:1366]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+ERROR 10-26 11:48:36 [core.py:1366]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:48:36 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-26 11:48:36 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-26 11:48:36 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:48:36 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1085, in __init__
+ERROR 10-26 11:48:36 [core.py:1366]     super().__init__(
+ERROR 10-26 11:48:36 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 145, in __init__
+ERROR 10-26 11:48:36 [core.py:1366]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+ERROR 10-26 11:48:36 [core.py:1366]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:48:36 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+ERROR 10-26 11:48:36 [core.py:1366]     return func(*args, **kwargs)
+ERROR 10-26 11:48:36 [core.py:1366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:48:36 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 319, in _initialize_kv_caches
+ERROR 10-26 11:48:36 [core.py:1366]     kv_cache_configs = get_kv_cache_configs(
+ERROR 10-26 11:48:36 [core.py:1366]                        ^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-26 11:48:36 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 2737, in get_kv_cache_configs
+ERROR 10-26 11:48:36 [core.py:1366]     _check_enough_kv_cache_memory(
+ERROR 10-26 11:48:36 [core.py:1366]   File "/venv/main/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 879, in _check_enough_kv_cache_memory
+ERROR 10-26 11:48:36 [core.py:1366]     raise ValueError(
+ERROR 10-26 11:48:36 [core.py:1366] ValueError: No available memory for the cache blocks. Try increasing `gpu_memory_utilization` when initializing the engine (this flag also controls CPU memory reservation on the CPU backend, despite its name). See https://docs.vllm.ai/en/latest/configuration/conse
+    raise ValueError(
+ValueError: No available memory for the cache blocks. Try increasing `gpu_memory_utilization` when initializing the engine (this flag also controls CPU memory reservation on the CPU backend, despite its name). See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
